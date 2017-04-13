@@ -20,7 +20,7 @@ Meteor.startup(() => {
         quantiteStock:0
     });
 
-    curseur = ProduitsCollection.find();
+    curseur = ProduitsCollection.find({ nom: 'Sac de blé - 25 Kg'});
     curseur.forEach(function(document){
       console.log(document);
     });
