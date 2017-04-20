@@ -20,8 +20,6 @@ Meteor.startup(() => {
         quantiteStock:0
     });
 
-    curseur = ProduitsCollection.find({prix: {$gt: 17}});
-    curseur.forEach(function(document){
-      console.log(document);
-    });
+    produit = ProduitsCollection.findOne({reference: '0794762842'});
+    console.log(produit);
 });
