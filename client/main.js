@@ -20,7 +20,7 @@ Meteor.startup(() => {
         quantiteStock:0
     });
 
-    curseur = ProduitsCollection.find({}, {sort: [["prix", "desc"], ["quantiteStock", "asc"]]});
+    curseur = ProduitsCollection.find({}, {limit: 2, sort: {prix: "desc"}});
     curseur.forEach(function(document){
       console.log(document);
     });
