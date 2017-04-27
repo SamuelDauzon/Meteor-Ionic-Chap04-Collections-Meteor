@@ -1,27 +1,13 @@
 import { Template } from 'meteor/templating';
 
 Meteor.startup(() => {
-    ProduitsCollection.insert({
-        nom: 'Sac de blé - 25 Kg',
-        prix: 12,
-        reference: '0738483926',
-        quantiteStock:8
-    });
-    ProduitsCollection.insert({
-        nom: 'Mélange de graines - 50 Kg',
-        prix: 29,
-        reference: '0794762842',
-        quantiteStock:3
-    });
-    ProduitsCollection.insert({
-        nom: 'Poulailler 6 poules',
-        prix: 199,
-        reference: '0798658495',
-        quantiteStock:0
-    });
 
-    curseur = ProduitsCollection.find({}, {fields: {nom: 1, prix: 1}});
-    curseur.forEach(function(document){
+    LocaleCollection = new Mongo.Collection(null);
+    LocaleCollection.insert({nom: 'Jean', age: 29});
+    LocaleCollection.insert({nom: 'Paul', age: 32});
+    LocaleCollection.insert({nom: 'Marie', age: 36});
+    var documents = LocaleCollection.find({age: {$gt: 30}}, {sort: {nom: "asc"}});
+    documents.forEach(function(document){
       console.log(document);
     });
 
